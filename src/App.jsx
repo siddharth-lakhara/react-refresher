@@ -15,7 +15,14 @@ function App() {
 
   useEffect(() => {
     console.log('useEffect');
-  }, [some])
+
+    // clean up function
+    // Called on destroy
+    return () => { console.log('Cleaning Up!') };
+  },
+  // Dependency array, useEffect will be triggered when dependency change 
+  [some]
+  );
 
   return (
     <div className="App">
